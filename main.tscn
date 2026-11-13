@@ -1,0 +1,96 @@
+[gd_scene format=3 uid="uid://b64toymbt6nsv"]
+
+[ext_resource type="PackedScene" uid="uid://cl3asgsun5e6t" path="res://player.tscn" id="1_0xm2m"]
+[ext_resource type="Script" uid="uid://dfhvfocw436fv" path="res://main.gd" id="1_h2yge"]
+[ext_resource type="Texture2D" uid="uid://6f5av70da17m" path="res://art/bg2.png" id="2_5vw27"]
+[ext_resource type="PackedScene" uid="uid://dsy47r0bafjo3" path="res://display.tscn" id="4_lquwl"]
+[ext_resource type="Texture2D" uid="uid://cif6km5q8qh8a" path="res://art/Sprites/Tiles/Default/terrain_grass_block_bottom.png" id="5_lquwl"]
+[ext_resource type="PackedScene" uid="uid://cpkkl5jmyyui3" path="res://stone_1.tscn" id="6_kek77"]
+[ext_resource type="PackedScene" uid="uid://bsypoo4g7bmtw" path="res://stone_2.tscn" id="7_4c57u"]
+[ext_resource type="PackedScene" uid="uid://dhvgtfthspd6n" path="res://stone_3.tscn" id="8_efxa6"]
+[ext_resource type="Script" uid="uid://the84c7kde6g" path="res://end_platform.gd" id="9_kek77"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ik0nf"]
+size = Vector2(97.5, 65)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dedry"]
+size = Vector2(97.5, 78)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4d6xw"]
+size = Vector2(92, 18)
+
+[node name="Main" type="Node" unique_id=1578702874]
+script = ExtResource("1_h2yge")
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=48392968]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_5vw27")
+
+[node name="Player" parent="." unique_id=1343713947 instance=ExtResource("1_0xm2m")]
+position = Vector2(111, 428.99997)
+
+[node name="StartTimer" type="Timer" parent="." unique_id=1199976315]
+wait_time = 2.0
+one_shot = true
+
+[node name="ScoreTimer" type="Timer" parent="." unique_id=177158249]
+
+[node name="display" parent="." unique_id=353916379 instance=ExtResource("4_lquwl")]
+
+[node name="StartPlatform" type="StaticBody2D" parent="." unique_id=904092370]
+position = Vector2(98, 653)
+scale = Vector2(3, 3)
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="StartPlatform" unique_id=1470443171]
+position = Vector2(16.5, 0)
+scale = Vector2(1.515625, 1)
+texture = ExtResource("5_lquwl")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StartPlatform" unique_id=169119316]
+position = Vector2(16.75, -1)
+shape = SubResource("RectangleShape2D_ik0nf")
+
+[node name="Stone1" parent="." unique_id=184016469 instance=ExtResource("6_kek77")]
+position = Vector2(454, 542)
+
+[node name="Stone2" parent="." unique_id=106778598 instance=ExtResource("7_4c57u")]
+position = Vector2(695, 450)
+scale = Vector2(1.8, 1.8)
+
+[node name="Stone3" parent="." unique_id=1611438003 instance=ExtResource("8_efxa6")]
+position = Vector2(925.00006, 541.00006)
+scale = Vector2(1.8, 1.8)
+
+[node name="EndPlatform" type="StaticBody2D" parent="." unique_id=298447470]
+position = Vector2(1141, 584)
+scale = Vector2(2, 2)
+script = ExtResource("9_kek77")
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="EndPlatform" unique_id=104374143]
+position = Vector2(20.25, 30.75)
+scale = Vector2(1.5234375, 1.1015625)
+texture = ExtResource("5_lquwl")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="EndPlatform" unique_id=1357982281]
+position = Vector2(22.25, 31)
+shape = SubResource("RectangleShape2D_dedry")
+
+[node name="Area2D" type="Area2D" parent="EndPlatform" unique_id=72189894]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="EndPlatform/Area2D" unique_id=307088753]
+position = Vector2(21, -1)
+shape = SubResource("RectangleShape2D_4d6xw")
+
+[node name="MultiTimer" type="Timer" parent="." unique_id=621041140]
+wait_time = 2.5
+
+[connection signal="timeout" from="StartTimer" to="." method="_on_start_timer_timeout"]
+[connection signal="timeout" from="ScoreTimer" to="." method="_on_score_timer_timeout"]
+[connection signal="body_entered" from="EndPlatform/Area2D" to="EndPlatform" method="_on_area_2d_body_entered"]
+[connection signal="timeout" from="MultiTimer" to="." method="_on_multi_timer_timeout"]

@@ -1,0 +1,20 @@
+[gd_scene format=3 uid="uid://cpkkl5jmyyui3"]
+
+[ext_resource type="Texture2D" uid="uid://bwj10bl2f5yw6" path="res://art/Sprites/Tiles/Default/terrain_grass_block.png" id="1_t6jb7"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ik0nf"]
+size = Vector2(132, 109)
+
+[node name="Stone1" type="StaticBody2D" unique_id=1050978105]
+position = Vector2(415, 506)
+scale = Vector2(0.8, 0.8)
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1090316936]
+position = Vector2(2, -6)
+scale = Vector2(2.453125, 2.046875)
+texture = ExtResource("1_t6jb7")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1456706502]
+position = Vector2(-2, -5)
+shape = SubResource("RectangleShape2D_ik0nf")
