@@ -1,0 +1,26 @@
+[gd_scene format=3 uid="uid://bqfvqjuibrfa6"]
+
+[ext_resource type="Texture2D" uid="uid://devgqmm7gvoxq" path="res://art/Sprites/Tiles/Double/terrain_grass_cloud_middle.png" id="1_56fga"]
+[ext_resource type="Script" uid="uid://cs1ag5r32dd3e" path="res://stones.gd" id="1_l8m5e"]
+[ext_resource type="Texture2D" uid="uid://bo5psh8j2y77d" path="res://art/Sprites/Tiles/Double/terrain_grass_block_top.png" id="2_5lpmb"]
+[ext_resource type="Texture2D" uid="uid://bbi6fiyeh2wny" path="res://art/Sprites/Tiles/Double/terrain_grass_horizontal_overhang_left.png" id="4_vfka8"]
+[ext_resource type="Texture2D" uid="uid://cmdlcjt4hvgki" path="res://art/Sprites/Tiles/Double/terrain_grass_horizontal_overhang_right.png" id="5_r7ehc"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_i3pqv"]
+size = Vector2(108, 95)
+
+[node name="Stones" type="AnimatableBody2D" unique_id=1149954478]
+position = Vector2(402, 642)
+scale = Vector2(1.2, 1.2)
+script = ExtResource("1_l8m5e")
+textures = Array[Texture2D]([ExtResource("2_5lpmb"), ExtResource("1_56fga"), ExtResource("4_vfka8"), ExtResource("5_r7ehc")])
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1473755485]
+position = Vector2(5.0000153, 12.12501)
+scale = Vector2(0.90929586, 0.7480462)
+texture = ExtResource("1_56fga")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1790410423]
+position = Vector2(6, -1.5)
+shape = SubResource("RectangleShape2D_i3pqv")

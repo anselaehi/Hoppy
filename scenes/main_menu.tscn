@@ -1,0 +1,105 @@
+[gd_scene format=3 uid="uid://djpxl8666t7v5"]
+
+[ext_resource type="FontFile" uid="uid://hdvbsal0vnes" path="res://PixelifySans-VariableFont_wght.ttf" id="1_7vrkn"]
+[ext_resource type="Texture2D" uid="uid://cjguogc3n4i76" path="res://art/bckgrd.png" id="1_fu7sn"]
+[ext_resource type="Script" uid="uid://dm8l3npcta4uv" path="res://main_menu.gd" id="1_jix8l"]
+[ext_resource type="FontFile" uid="uid://sj232p74otor" path="res://OleoScriptSwashCaps-Regular.ttf" id="2_fu7sn"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ik0nf"]
+texture = ExtResource("1_fu7sn")
+modulate_color = Color(0.47007585, 0.47007585, 0.47007585, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fu7sn"]
+bg_color = Color(0.9867516, 0.9867516, 0.9867516, 1)
+corner_radius_top_left = 24
+corner_radius_top_right = 24
+corner_radius_bottom_right = 24
+corner_radius_bottom_left = 24
+shadow_color = Color(0.1529178, 0.15445393, 0.19617334, 0.20392157)
+shadow_size = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jix8l"]
+bg_color = Color(0.86036915, 0.8603692, 0.8603692, 1)
+corner_radius_top_left = 24
+corner_radius_top_right = 24
+corner_radius_bottom_right = 24
+corner_radius_bottom_left = 24
+shadow_color = Color(0.1529178, 0.15445393, 0.19617334, 0.20392157)
+shadow_size = 10
+
+[node name="MainMenu" type="Control" unique_id=1316913204]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -1.0
+offset_top = 8.0
+offset_right = -1.0
+offset_bottom = 8.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_jix8l")
+
+[node name="Panel" type="Panel" parent="." unique_id=1351424081]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -1.0
+offset_top = -5.0
+offset_right = -1.0
+offset_bottom = -5.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_ik0nf")
+
+[node name="Label" type="Label" parent="." unique_id=658981978]
+layout_mode = 0
+offset_left = 119.0
+offset_top = 84.0
+offset_right = 433.0
+offset_bottom = 215.0
+theme_override_colors/font_shadow_color = Color(0.0035191667, 0.0035191681, 0.0035191672, 1)
+theme_override_constants/shadow_offset_x = 5
+theme_override_constants/shadow_offset_y = 10
+theme_override_fonts/font = ExtResource("1_7vrkn")
+theme_override_font_sizes/font_size = 108
+text = "Hoppy"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="." unique_id=1326236731]
+layout_mode = 0
+offset_left = 158.0
+offset_top = 435.0
+offset_right = 1150.0
+offset_bottom = 569.0
+theme_override_constants/separation = 80
+
+[node name="StartButton" type="Button" parent="HBoxContainer" unique_id=659506170]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(0.060530208, 0.06053043, 0.060530253, 1)
+theme_override_colors/font_pressed_color = Color(0.14767182, 0.14767179, 0.14767179, 1)
+theme_override_colors/font_hover_color = Color(0.10374341, 0.103743546, 0.10374386, 1)
+theme_override_fonts/font = ExtResource("2_fu7sn")
+theme_override_font_sizes/font_size = 48
+theme_override_styles/normal = SubResource("StyleBoxFlat_fu7sn")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_fu7sn")
+theme_override_styles/hover = SubResource("StyleBoxFlat_jix8l")
+text = "Start game"
+
+[node name="Exit" type="Button" parent="HBoxContainer" unique_id=128614539]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(0.060530208, 0.06053043, 0.060530253, 1)
+theme_override_colors/font_pressed_color = Color(0.14767182, 0.14767179, 0.14767179, 1)
+theme_override_colors/font_hover_color = Color(0.10374341, 0.103743546, 0.10374386, 1)
+theme_override_fonts/font = ExtResource("2_fu7sn")
+theme_override_font_sizes/font_size = 48
+theme_override_styles/normal = SubResource("StyleBoxFlat_fu7sn")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_fu7sn")
+theme_override_styles/hover = SubResource("StyleBoxFlat_jix8l")
+text = "Exit
+"
+
+[connection signal="pressed" from="HBoxContainer/StartButton" to="." method="_on_start_button_pressed"]
+[connection signal="pressed" from="HBoxContainer/Exit" to="." method="_on_exit_pressed"]

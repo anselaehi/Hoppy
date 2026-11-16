@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://bsypoo4g7bmtw"]
+
+[ext_resource type="Texture2D" uid="uid://ds0ucl8uayw2i" path="res://art/Sprites/Tiles/Default/terrain_grass_cloud.png" id="1_68ghw"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dedry"]
+size = Vector2(62, 56)
+
+[node name="Stone2" type="StaticBody2D" unique_id=200559942]
+position = Vector2(432, 405)
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=847561743]
+position = Vector2(0.5, -0.5)
+scale = Vector2(1.015625, 0.984375)
+texture = ExtResource("1_68ghw")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=120796212]
+position = Vector2(0, -2)
+shape = SubResource("RectangleShape2D_dedry")

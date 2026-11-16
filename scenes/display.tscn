@@ -1,0 +1,46 @@
+[gd_scene format=3 uid="uid://dsy47r0bafjo3"]
+
+[ext_resource type="Script" uid="uid://dl7y1sgg3x2eo" path="res://display.gd" id="1_mytll"]
+[ext_resource type="FontFile" uid="uid://sj232p74otor" path="res://OleoScriptSwashCaps-Regular.ttf" id="1_ru5jf"]
+
+[node name="display" type="CanvasLayer" unique_id=353916379]
+script = ExtResource("1_mytll")
+
+[node name="ScoreLabel" type="Label" parent="." unique_id=1310836481]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -89.75
+offset_right = 89.75
+offset_bottom = 188.0
+grow_horizontal = 2
+theme_override_colors/font_color = Color(0.0142752165, 0.014275218, 0.014275218, 1)
+theme_override_fonts/font = ExtResource("1_ru5jf")
+theme_override_font_sizes/font_size = 64
+text = "0"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Message" type="Label" parent="." unique_id=1613243529]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -132.0
+offset_top = -229.0
+offset_right = 132.0
+offset_bottom = -123.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.0142752165, 0.014275218, 0.014275218, 1)
+theme_override_fonts/font = ExtResource("1_ru5jf")
+theme_override_font_sizes/font_size = 64
+text = "Start"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="MessageTimer" type="Timer" parent="." unique_id=416833684]
+wait_time = 1.5
+
+[connection signal="timeout" from="MessageTimer" to="." method="_on_message_timer_timeout"]
